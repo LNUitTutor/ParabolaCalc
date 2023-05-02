@@ -67,7 +67,8 @@ namespace ParabolaCalc
             if (cb_Calculate.Checked)
             {
                 var roots = solver.CalculateRoots();
-                tb_Result.Text += string.Format("\n\r x₁ = {0:F}; x₂ = {1:F}", roots.Item1, roots.Item2);
+                tb_Result.AppendText(Environment.NewLine);
+                tb_Result.AppendText( string.Format("x₁ = {0:F}; x₂ = {1:F}", roots.Item1, roots.Item2));
             }
         }
 
