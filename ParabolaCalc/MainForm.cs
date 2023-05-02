@@ -64,6 +64,11 @@ namespace ParabolaCalc
             btn_Calc.Focus();
             Solver solver = new Solver(a, b, c);
             tb_Result.Text = solver.GetAppearance();
+            if (cb_Calculate.Checked)
+            {
+                var roots = solver.CalculateRoots();
+                tb_Result.Text += string.Format("\n\r x₁ = {0:F}; x₂ = {1:F}", roots.Item1, roots.Item2);
+            }
         }
 
         private void tb_B_Leave(object sender, EventArgs e)

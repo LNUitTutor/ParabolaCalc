@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,6 +28,14 @@ namespace ParabolaCalc
             if (c > 0) builder.AppendFormat(" +{0}", c);
             else if (c < 0) builder.AppendFormat(" {0}", c);
             return builder.ToString();
+        }
+        public (Complex, Complex) CalculateRoots()
+        {
+            Complex D = b * b - 4.0 * a * c;
+            D = Complex.Sqrt(D);
+            Complex x1 = (-b - D) / (2.0 * a);
+            Complex x2 = (-b + D) / (2.0 * a);
+            return (x1, x2);
         }
     }
 }
