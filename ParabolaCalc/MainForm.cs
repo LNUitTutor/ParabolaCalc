@@ -62,14 +62,8 @@ namespace ParabolaCalc
         private void btn_Calc_Click(object sender, EventArgs e)
         {
             btn_Calc.Focus();
-            StringBuilder builder = new StringBuilder(100);
-            if (a == 1.0) builder.Append("y = x²");
-            else builder.AppendFormat("y = {0}x²", a);
-            if (b > 0) builder.AppendFormat(" +{0}x", b);
-            else if (b < 0) builder.AppendFormat(" {0}x", b);
-            if (c > 0) builder.AppendFormat(" +{0}", c);
-            else if (c < 0) builder.AppendFormat(" {0}", c);
-            tb_Result.Text = builder.ToString();
+            Solver solver = new Solver(a, b, c);
+            tb_Result.Text = solver.GetAppearance();
         }
 
         private void tb_B_Leave(object sender, EventArgs e)
